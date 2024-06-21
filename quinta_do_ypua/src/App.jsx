@@ -1,39 +1,24 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import userIcon from './img/user.svg'; 
-import keyboardIcon from './img/keyboard.svg';  
-import logo from './img/image.jpg';  
-const Menu = () => {
-  return (
-    <div className="container">
-      <div className="menu">
-        <div className="logo">
-          <img src={logo} alt="logo" />  
-        </div>
-        <a href="./home.jsx">Início</a>
-        <a href="./reserva.jsx">Reservas</a>
-        <a href="./caixa.jsx">Meu caixa</a>
-      </div>
+import Menu from './components/Menu.jsx';
 
-      <div className="main-content">
-        <div className="content">
-          <div className="header">
-            <div className="stats">
-              <button>Todos: 10</button>
-              <button className="available">Disponível: 3</button>
-              <button className="occupied">Ocupado: 3</button>
-              <button>Em limpeza: 0</button>
-              <button className="enter-today">Entra hoje: 2</button>
-              <button className="exit-today">Sai hoje: 2</button>
-            </div>
-            <div className="user-info">
-              <img src={userIcon} alt="user" />
-              <img src={keyboardIcon} alt="keyboard" />
-            </div>
-          </div>
-        </div>
+const Home = () => <div>Home Component</div>;
+const Reserva = () => <div>Reserva Component</div>;
+const Caixa = () => <div>Caixa Component</div>;
+
+const App = () => {
+  return (
+    <Router>
+      <div>
+        <Menu />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/reserva" element={<Reserva />} />
+          <Route path="/caixa" element={<Caixa />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 };
 
-export default Menu;
+export default App;

@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh; 
+}
+
+.menu {
+  width: 280px;
+  background-color: #7e2726;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.menu .logo {
+  padding: 40px;
+  padding-left: 80px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-size: 2rem;
+  padding: 30px 0 0 70px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.header .stats {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex: 1;
+  justify-content: start; 
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.header .stats button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header .stats .available {
+  background-color: #4caf50; 
+  color: white;
+}
+
+.header .stats .occupied {
+  background-color: #f44336; 
+  color: white;
+}
+
+.header .stats .enter-today {
+  background-color: #2196f3; 
+  color: white;
+}
+
+.header .stats .exit-today {
+  background-color: #ffeb3b; 
+  color: black;
+}
+
+.header .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .user-info img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}

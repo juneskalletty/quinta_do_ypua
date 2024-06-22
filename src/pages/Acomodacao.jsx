@@ -1,35 +1,31 @@
 import React from 'react';
-import '../style/pages/Acomodacao.css'; // Certifique-se de que o caminho para o CSS está correto
+import '../style/pages/Acomodacao.css';
 import userIcon from '../img/user.svg';
 import keyboardIcon from '../img/keyboard.svg';
 import Menu from '../components/Menu';
+import HeaderMenu from '../components/HeaderMenu';
 
 const Acomodacao = () => {
   return (
-    <div>
+    <div className='acomodacao'> 
       <Menu />
-      <div className="container">
-        <div className="main-content">
-          <div className="content">
-            <div className="header">
-              <div className="stats">
-                <button>Todos: 10</button>
-                <button className="available">Disponível: 3</button>
-                <button className="occupied">Ocupado: 3</button>
-                <button>Em limpeza: 0</button>
-                <button className="enter-today">Entra hoje: 2</button>
-                <button className="exit-today">Sai hoje: 2</button>
-              </div>
-              <div className="user-info">
-                <img src={userIcon} alt="user" />
-                <img src={keyboardIcon} alt="keyboard" />
-              </div>
-            </div>
-            {/* Adicione mais conteúdo da página Acomodacao aqui */}
+          <div className='acomodacao-content'>
+            <HeaderMenu />
+            <div className='agenda-content'>
+              <div className='agenda'></div>
+            <div className='button'>
+            <button className="cabana-button">Cabana 1</button>
+            <button className="cabana-button">Suíte com cozinha 1</button>
+            <button className="cabana-button">Cabana 3</button>
+            <button className="cabana-button">Overlands</button>
+            <button className="cabana-button">Bus</button>
+            <button className="cabana-button">Suíte com cozinha 2</button>
+            <button className="cabana-button">Overlands</button>
+            <button className="cabana-button">Cabana 2</button>
+            <button className="cabana-button">Overlands</button>
+           </div>
+           </div>
           </div>
-        </div>
-        <button className="cabana-button">Cabana 1</button>
-      </div>
     </div>
   );
 };

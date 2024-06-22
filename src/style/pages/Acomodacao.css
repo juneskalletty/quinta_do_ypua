@@ -1,0 +1,33 @@
+.App {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .cabana-button {
+    position: absolute;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .cabana-button:hover {
+    background-color: #0056b3;
+  }
+  
+ 
+  .cabana-button:nth-child(1) { top: 20px; }
+  .cabana-button:nth-child(2) { top: 60px; }
+  .cabana-button:nth-child(3) { top: 100px; }
+  .cabana-button:nth-child(4) { top: 140px; }
+  .cabana-button:nth-child(5) { top: 180px; }
+  .cabana-button:nth-child(6) { top: 220px; }
+  .cabana-button:nth-child(7) { top: 260px; }
+  .cabana-button:nth-child(8) { top: 300px; }
+  .cabana-button:nth-child(9) { top: 340px; }
+
+   

@@ -1,0 +1,36 @@
+.App {
+    position: relative;
+    height: 100vh;
+  }
+  
+  .cabana-button {
+  
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .cabana-button:hover {
+    background-color: #0056b3;
+  }
+  
+ .acomodacao {
+  display:flex;
+ }
+ 
+ 
+.button {
+  display: flex;
+  flex-direction: column;
+}
+.agenda-content {
+  display: flex;
+  justify-content: space-between;
+}
+.acomodacao-content {
+  width: 100%;
+}

@@ -1,26 +1,9 @@
-import { Link } from 'react-router-dom';
-import '../style/components/Menu.css'; 
-<<<<<<< HEAD
 import userIcon from '../img/user.svg'; 
 import keyboardIcon from '../img/keyboard.svg';  
-=======
->>>>>>> 145d06d0c619f76956c8e0381e8e33025406188d
-import logo from '../img/image.jpg';  
 
-const Menu = () => {
-  return (
-    <div className="container">
-      <div className="menu">
-        <div className="logo">
-          <img src={logo} alt="logo" />  
-        </div>
-        <Link to="/home">Início</Link>
-        <Link to="/reserva">Reservas</Link>
-        <Link to="/caixa">Meu caixa</Link>
-      </div>
-
-<<<<<<< HEAD
-      <div className="main-content">
+const HeaderMenu = () => {
+    return (
+        <div className="main-content">
         <div className="content">
           <div className="header">
             <div className="stats">
@@ -38,11 +21,6 @@ const Menu = () => {
           </div>
         </div>
       </div>
-=======
-      
->>>>>>> 145d06d0c619f76956c8e0381e8e33025406188d
-    </div>
-  );
-};
-
-export default Menu;
+    )
+}
+export default HeaderMenu;

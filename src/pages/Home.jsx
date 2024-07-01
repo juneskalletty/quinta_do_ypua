@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
 import '../style/pages/Home.css';
+import Menu from '../components/Menu';
+import HeaderMenu from '../components/HeaderMenu';
 
 const Home = () => {
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import '../style/pages/Acomodacao.css';
 import userIcon from '../img/user.svg';

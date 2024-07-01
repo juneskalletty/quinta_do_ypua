@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -9,6 +10,7 @@ import 'moment/locale/pt-br';
 moment.locale('pt-br');
 const localizer = momentLocalizer(moment);
 
+// eslint-disable-next-line react/prop-types
 const MyCalendar = ({ acomodacao, setAcomodacao }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentEvent, setCurrentEvent] = useState({});

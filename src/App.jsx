@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Menu from './components/Menu.jsx';
+import Home from './pages/Home.jsx';
 
-const Home = () => <div>Home Component</div>;
 const Reserva = () => <div>Reserva Component</div>;
 const Caixa = () => <div>Caixa Component</div>;
 

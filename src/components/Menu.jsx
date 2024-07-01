@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
 import '../style/components/Menu.css'; 
+<<<<<<< HEAD
+import userIcon from '../img/user.svg'; 
+import keyboardIcon from '../img/keyboard.svg';  
+=======
+>>>>>>> 145d06d0c619f76956c8e0381e8e33025406188d
 import logo from '../img/image.jpg';  
 
 const Menu = () => {
@@ -14,7 +19,28 @@ const Menu = () => {
         <Link to="/caixa">Meu caixa</Link>
       </div>
 
+<<<<<<< HEAD
+      <div className="main-content">
+        <div className="content">
+          <div className="header">
+            <div className="stats">
+              <button>Todos: 10</button>
+              <button className="available">Disponível: 3</button>
+              <button className="occupied">Ocupado: 3</button>
+              <button>Em limpeza: 0</button>
+              <button className="enter-today">Entra hoje: 2</button>
+              <button className="exit-today">Sai hoje: 2</button>
+            </div>
+            <div className="user-info">
+              <img src={userIcon} alt="user" />
+              <img src={keyboardIcon} alt="keyboard" />
+            </div>
+          </div>
+        </div>
+      </div>
+=======
       
+>>>>>>> 145d06d0c619f76956c8e0381e8e33025406188d
     </div>
   );
 };

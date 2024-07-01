@@ -1,56 +1,32 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import './Cadastro.css'; // Estilo do componente de cadastro
+import { Link } from 'react-router-dom';
+import '../style/components/Cadastro.css'; 
 
 const Cadastro = () => {
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const history = useHistory();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aqui você pode adicionar lógica para enviar os dados do usuário para o backend
-    console.log('Nome:', nome);
-    console.log('Email:', email);
-    console.log('Telefone:', telefone);
-    // Redirecionar para a página de login após o cadastro
-    history.push('/login');
-  };
-
   return (
     <div className="cadastro-container">
-      <h2>Cadastro</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label>Nome:</label>
-          <input
-            type="text"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            required
-          />
-        </div>
-        <div className="input-group">
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="input-group">
-          <label>Telefone:</label>
-          <input
-            type="tel"
-            value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Cadastrar</button>
-      </form>
+      <div className="cadastro-box">
+        <h2>Cadastro</h2>
+        <form>
+          <div className="input-group">
+            <label htmlFor="username">Usuário:</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div className="input-group">
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password">Senha:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div className="input-group">
+            <label htmlFor="confirm-password">Confirmar Senha:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required />
+          </div>
+          <button type="submit">Cadastrar</button>
+        </form>
+        <p>Já tem uma conta? <Link to="/login">Entrar</Link></p>
+      </div>
     </div>
   );
 };

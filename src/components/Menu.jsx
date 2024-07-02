@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import '../style/components/Menu.css'; 
-
 import logo from '../img/image.jpg';  
 
 const Menu = () => {
@@ -14,6 +13,8 @@ const Menu = () => {
         <Link to="/reserva">Reservas</Link>
         <Link to="/caixa">Meu caixa</Link>
       </div>
+
+      
     </div>
   );
 };

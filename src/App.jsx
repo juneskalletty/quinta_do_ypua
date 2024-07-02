@@ -1,39 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Menu from './components/Menu';
-import Login from './components/Login';
-import Cadastro from './components/Cadastro';
+import Acomodacao from './pages/Acomodacao';
+import Home from './pages/Home';
 
-// Componentes para as rotas do primeiro exemplo
-const Home = () => <div>Home Component</div>;
-const Reserva = () => <div>Reserva Component</div>;
-const Caixa = () => <div>Caixa Component</div>;
-
-function App() {
+const App = () => {
   return (
-    <Router>
-      <div>
-        {/* Componente Menu comum a ambos os exemplos */}
-        <Menu />
-
-        {/* Roteamento para as rotas do primeiro exemplo */}
+    <div className='App'>
+      <Router>
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/reserva" element={<Reserva />} />
-          <Route path="/caixa" element={<Caixa />} />
+          <Route path="/acomodacao" element={<Acomodacao />} />
         </Routes>
-
-        {/* Roteamento para as rotas do segundo exemplo */}
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/cadastro" component={Cadastro} />
-          {/* Rota padrão para o Menu, ajuste conforme necessário */}
-          <Route path="/" component={Menu} />
-        </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
-}
+};
 
 export default App;

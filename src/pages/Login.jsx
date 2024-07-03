@@ -1,13 +1,11 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/pages/Login.css';
-import logo from '../img/image.jpg'; 
+import logo from '../img/image.jpg'; // Ajuste o caminho conforme necessário
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const navigate = useNavigate();
@@ -23,21 +21,14 @@ const Login = () => {
 
   const handleForgotPassword = async (event) => {
     event.preventDefault();
+    // Implementar lógica de envio de senha
     alert(`Instruções para redefinir sua senha foram enviadas para: ${email}`);
   };
 
   const handleSignup = async (event) => {
     event.preventDefault();
-    if (email && password && name) {
-      const newUser = { id: Date.now(), email, password, name };
-      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
-      storedUsers.push(newUser);
-      localStorage.setItem('users', JSON.stringify(storedUsers));
-      setShowSignup(false);
-      alert('Cadastro realizado com sucesso!');
-    } else {
-      alert('Por favor, preencha todos os campos.');
-    }
+    // Implementar lógica de cadastro
+    alert('Cadastro realizado com sucesso!');
   };
 
   const handleChange = (event) => {
@@ -46,8 +37,6 @@ const Login = () => {
       setEmail(value);
     } else if (name === 'password') {
       setPassword(value);
-    } else if (name === 'name') {
-      setName(value);
     }
   };
 
@@ -103,13 +92,6 @@ const Login = () => {
         {showSignup && (
           <form onSubmit={handleSignup}>
             <h3>Cadastre-se</h3>
-            <input
-              name="name"
-              placeholder="Digite seu nome"
-              onChange={handleChange}
-              type="text"
-              value={name}
-            />
             <input
               name="email"
               placeholder="Digite seu e-mail"

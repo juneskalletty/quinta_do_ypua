@@ -1,4 +1,4 @@
-June Skalletty, [03/07/2024 11:57]
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Acomodacao from './pages/Acomodacao';

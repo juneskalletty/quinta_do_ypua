@@ -27,6 +27,7 @@ const Home = () => {
     { title: "Cabana 3", name: "", dates: "", color: "green", id: "cabana3" },
     { title: "Nova Acomodação", name: "", dates: "", color: "green", id: "novaacomodacao" },
   ]);
+  const [showUserCard, setShowUserCard] = useState(false);
 
   const handleAcomodacaoClick = (acomodacao) => {
     if (acomodacao === 'novaacomodacao') {
@@ -34,6 +35,18 @@ const Home = () => {
     } else {
       navigate(`/acomodacao?acomodacao=${acomodacao}`);
     }
+  };
+
+  const handleLogout = () => {
+    navigate('/login');
+  };
+
+  const handleAdmin = () => {
+    navigate('/admin');
+  };
+
+  const toggleUserCard = () => {
+    setShowUserCard(!showUserCard);
   };
 
   const handleFilterClick = (color) => {
@@ -97,7 +110,14 @@ const Home = () => {
           </div>
           <div className="user-info">
             <img src={userIcon} alt="user" />
-            <img src={keyboardIcon} alt="keyboard" />
+            <img src={keyboardIcon} alt="keyboard" onClick={toggleUserCard} style={{ cursor: 'pointer' }} />
+            {showUserCard && (
+              <div className="user-card">
+                <p>Usuário Logado</p>
+                <a onClick={handleAdmin}>Administrador</a>
+                <a onClick={handleLogout}>Sair</a>
+              </div>
+            )}
           </div>
         </div>
         <div className="separator"></div>

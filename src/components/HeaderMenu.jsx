@@ -41,7 +41,6 @@ const HeaderMenu = () => {
                 <p>Usuário Logado</p>
                 <a onClick={handleAdmin}>Administrador</a>
                 <a onClick={handleLogout}>Sair</a>
-                
               </div>
             )}
           </div>

@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../style/pages/Login.css';
-import logo from '../img/image.jpg'; // Ajuste o caminho conforme necessário
+import logo from '../img/image.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,13 +22,11 @@ const Login = () => {
 
   const handleForgotPassword = async (event) => {
     event.preventDefault();
-    // Implementar lógica de envio de senha
     alert(`Instruções para redefinir sua senha foram enviadas para: ${email}`);
   };
 
   const handleSignup = async (event) => {
     event.preventDefault();
-    // Implementar lógica de cadastro
     alert('Cadastro realizado com sucesso!');
   };
 
@@ -92,6 +91,11 @@ const Login = () => {
         {showSignup && (
           <form onSubmit={handleSignup}>
             <h3>Cadastre-se</h3>
+            <input
+            name = "nome"
+            placeholder='Digite seu nome'
+            type='name'
+            value={name}/>
             <input
               name="email"
               placeholder="Digite seu e-mail"

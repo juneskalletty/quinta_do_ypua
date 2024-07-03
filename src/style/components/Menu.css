@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh; 
+}
+
+.menu {
+  width: 280px;
+  background-color: #7e2726;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.menu .logo {
+  padding: 40px;
+  padding-left: 80px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-size: 2rem;
+  padding: 30px 0 0 70px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.header .stats {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex: 1;
+  justify-content: start; 
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.header .stats button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px; 
+  height: 30px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.header .stats .available {
+  background-color: #4caf50; 
+  color: white;
+}
+
+.header .stats .occupied {
+  background-color: #f44336; 
+  color: white;
+}
+
+.header .stats .enter-today {
+  background-color: #2196f3; 
+  color: white;
+}
+
+.header .stats .exit-today {
+  background-color: #ffeb3b; 
+  color: black;
+}
+
+.header .user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .user-info img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  height: 3rem;
+}
+
+.user-card {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  z-index: 1000; 
+}
+
+.user-card p {
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+  padding: 30px
+}
+
+.user-card a {
+  margin: 5px 0;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-card a:hover {
+  color: #c0a178;
+}

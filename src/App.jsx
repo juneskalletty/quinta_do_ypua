@@ -1,18 +1,24 @@
-import React from 'react';
-import './App.css';
-import '/vite.svg';
 
-const Menu = () => {
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
+import Acomodacao from './pages/Acomodacao';
+import Home from './pages/Home';
+import Admin from './pages/Admin'; 
+import Login from './pages/Login';
+
+const App = () => {
   return (
-    <div className="menu">
-      <div className="logo">
-        <img src="img/image 2.png" alt="" />
-      </div>
-      <a href="./home.html">Início</a>
-      <a href="./hospede.html">Hóspedes</a>
-      <a href="./caixa.html">Meu caixa</a>
+    <div className='App'>
+      <Router>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/acomodacao" element={<Acomodacao />} />
+          <Route path="/admin" element={<Admin />} /> 
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 };
 
-export default Menu;
+export default App;

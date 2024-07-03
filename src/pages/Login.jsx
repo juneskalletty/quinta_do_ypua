@@ -1,4 +1,4 @@
-June Skalletty, [03/07/2024 12:59]
+
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';

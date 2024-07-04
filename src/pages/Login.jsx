@@ -7,6 +7,7 @@ import logo from '../img/image.jpg';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +28,19 @@ const Login = () => {
 
   const handleSignup = async (event) => {
     event.preventDefault();
-    alert('Cadastro realizado com sucesso!');
+    if (name && email && password) {
+      const newUser = { id: Date.now(), name, email, password };
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      storedUsers.push(newUser);
+      localStorage.setItem('users', JSON.stringify(storedUsers));
+      alert('Cadastro realizado com sucesso!');
+      setName('');
+      setEmail('');
+      setPassword('');
+      setShowSignup(false);
+    } else {
+      alert('Por favor, preencha todos os campos.');
+    }
   };
 
   const handleChange = (event) => {
@@ -36,6 +49,8 @@ const Login = () => {
       setEmail(value);
     } else if (name === 'password') {
       setPassword(value);
+    } else if (name === 'name') {
+      setName(value);
     }
   };
 
@@ -92,10 +107,12 @@ const Login = () => {
           <form onSubmit={handleSignup}>
             <h3>Cadastre-se</h3>
             <input
-            name = "nome"
-            placeholder='Digite seu nome'
-            type='name'
-            value={name}/>
+              name="name"
+              placeholder="Digite seu nome"
+              onChange={handleChange}
+              type="text"
+              value={name}
+            />
             <input
               name="email"
               placeholder="Digite seu e-mail"

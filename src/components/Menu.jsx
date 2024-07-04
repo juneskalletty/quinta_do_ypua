@@ -10,8 +10,8 @@ const Menu = () => {
           <img src={logo} alt="logo" />  
         </div>
         <Link to="/home">Início</Link>
-        <Link to="/reserva">Reservas</Link>
         <Link to="/acomodacao">Acomodações</Link>
+        <Link to="/meu-caixa">Meu Caixa</Link>
       </div>
 
       

@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .pagamentos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .pagamentos-header .date-filters {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .pagamentos-header .add-payment {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .pagamentos-tabela {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .tabela-header, .tabela-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .tabela-header {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  .tabela-col {
+    flex: 1;
+    padding: 5px;
+  }
+  
+  .tabela-col:last-child {
+    flex: none;
+  }
+  
+  .tabela-row {
+    background-color: #fff;
+  }
+  
+  .tabela-row .tabela-col button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  

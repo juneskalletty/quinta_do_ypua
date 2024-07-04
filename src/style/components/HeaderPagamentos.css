@@ -1,0 +1,30 @@
+.header-pagamentos {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .header-pagamentos .todos {
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .header-pagamentos .pagos {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .header-pagamentos .naoPagos {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  

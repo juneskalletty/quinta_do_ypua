@@ -11,7 +11,8 @@ const Menu = () => {
         </div>
         <Link to="/home">Início</Link>
         <Link to="/reserva">Reservas</Link>
-        <Link to="/caixa">Meu caixa</Link>
+        <Link to="/acomodacao">Acomodações</Link>
+        <Link to="/meu-caixa">Meu Caixa</Link>
       </div>
 
       

@@ -11,16 +11,10 @@ const Home = () => {
   const navigate = useNavigate();
   
   const [filteredColor, setFilteredColor] = useState('');
-  
-  const handleAcomodacaoClick = (acomodacao) => {
-    navigate(`/acomodacao?acomodacao=${acomodacao}`);
-  };
-
-  const handleFilterClick = (color) => {
-    setFilteredColor(color);
-  };
-
-  const acomodacoes = [
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [newAcomodacao, setNewAcomodacao] = useState({ title: '', name: '', dates: '', color: 'green', id: '' });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [acomodacoes, setAcomodacoes] = useState([
     { title: "Chalé familia", name: "Maria da Silva", dates: "03/04/2024 - 07/04/2024", color: "red", id: "cabana1" },
     { title: "Suíte com cozinha 1", name: "João Alberto Rodrigues", dates: "03/04/2024 - 07/04/2024", color: "red", id: "suitecomcozinha1" },
     { title: "Cabana 1", name: "Gabriel Mendes Moura", dates: "03/04/2024 - 07/04/2024", color: "red", id: "cabana1" },
@@ -32,11 +26,75 @@ const Home = () => {
     { title: "Overlands", name: "", dates: "", color: "green", id: "overlands3" },
     { title: "Cabana 3", name: "", dates: "", color: "green", id: "cabana3" },
     { title: "Nova Acomodação", name: "", dates: "", color: "green", id: "novaacomodacao" },
-  ];
+  ]);
+  const [showUserCard, setShowUserCard] = useState(false);
+
+  const handleAcomodacaoClick = (acomodacao) => {
+    if (acomodacao === 'novaacomodacao') {
+      setIsFormVisible(true);
+    } else {
+      navigate(`/acomodacao?acomodacao=${acomodacao}`);
+    }
+  };
+
+  const handleLogout = () => {
+    navigate('/login');
+  };
+
+  const handleAdmin = () => {
+    navigate('/admin');
+  };
+
+  const toggleUserCard = () => {
+    setShowUserCard(!showUserCard);
+  };
+
+  const handleFilterClick = (color) => {
+    setFilteredColor(color);
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setNewAcomodacao({ ...newAcomodacao, [name]: value });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (!newAcomodacao.title) {
+      alert("O campo 'Acomodação' não pode estar vazio.");
+      return;
+    }
+
+    const existingAcomodacaoIndex = acomodacoes.findIndex(acc => acc.id === newAcomodacao.id);
+    if (existingAcomodacaoIndex !== -1) {
+      const updatedAcomodacoes = acomodacoes.map(acc =>
+        acc.id === newAcomodacao.id ? { ...acc, title: newAcomodacao.title } : acc
+      );
+      setAcomodacoes(updatedAcomodacoes);
+    } else {
+      setAcomodacoes([...acomodacoes, { ...newAcomodacao, id: `acomodacao${acomodacoes.length + 1}` }]);
+    }
+    setIsFormVisible(false);
+    setNewAcomodacao({ title: '', name: '', dates: '', color: 'green', id: '' });
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearchSelect = (id) => {
+    const acomodacao = acomodacoes.find(acc => acc.id === id);
+    setNewAcomodacao(acomodacao);
+    setSearchTerm('');
+  };
 
   const filteredAcomodacoes = filteredColor
     ? acomodacoes.filter(acomodacao => acomodacao.color === filteredColor)
     : acomodacoes;
+
+  const filteredSearchResults = acomodacoes.filter(acomodacao => 
+    acomodacao.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="container">
@@ -44,16 +102,22 @@ const Home = () => {
       <div className="content">
         <div className="header">
           <div className="stats">
-            <button onClick={() => handleFilterClick('')}>Todos: 10</button>
-            <button className="occupied" onClick={() => handleFilterClick("red")}>Ocupado: 3</button>
-            <button className="enter-today" onClick={() => handleFilterClick("blue")}>Entra hoje: 2</button>
-            <button className="exit-today" onClick={() => handleFilterClick("yellow")}>Sai hoje: 2</button>
-            <button className="available" onClick={() => handleFilterClick("green")}>Disponível: 3</button>
-            
+            <button onClick={() => handleFilterClick('')}>Todos: {acomodacoes.length}</button>
+            <button className="occupied" onClick={() => handleFilterClick("red")}>Ocupado: {acomodacoes.filter(acc => acc.color === "red").length}</button>
+            <button className="enter-today" onClick={() => handleFilterClick("blue")}>Entra hoje: {acomodacoes.filter(acc => acc.color === "blue").length}</button>
+            <button className="exit-today" onClick={() => handleFilterClick("yellow")}>Sai hoje: {acomodacoes.filter(acc => acc.color === "yellow").length}</button>
+            <button className="available" onClick={() => handleFilterClick("green")}>Disponível: {acomodacoes.filter(acc => acc.color === "green").length}</button>
           </div>
           <div className="user-info">
             <img src={userIcon} alt="user" />
-            <img src={keyboardIcon} alt="keyboard" />
+            <img src={keyboardIcon} alt="keyboard" onClick={toggleUserCard} style={{ cursor: 'pointer' }} />
+            {showUserCard && (
+              <div className="user-card">
+                <p>Usuário Logado</p>
+                <a onClick={handleAdmin}>Administrador</a>
+                <a onClick={handleLogout}>Sair</a>
+              </div>
+            )}
           </div>
         </div>
         <div className="separator"></div>
@@ -77,6 +141,46 @@ const Home = () => {
             {filteredAcomodacoes.length % 4 !== 0 && <div className="empty-block"></div>}
           </div>
         </div>
+        {isFormVisible && (
+          <div className="form-overlay">
+            <form className="form" onSubmit={handleFormSubmit}>
+              <h2>Nova Acomodação</h2>
+              <label>
+                Acomodação:
+                <input 
+                  type="text" 
+                  name="title" 
+                  value={newAcomodacao.title} 
+                  onChange={handleFormChange} 
+                />
+              </label>
+              <label>
+                Pesquisar Acomodações:
+                <input 
+                  type="text" 
+                  value={searchTerm} 
+                  onChange={handleSearchChange} 
+                />
+                {searchTerm && (
+                  <ul className="search-results">
+                    {filteredSearchResults.map(result => (
+                      <li 
+                        key={result.id} 
+                        onClick={() => handleSearchSelect(result.id)}
+                      >
+                        {result.title}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </label>
+              <div className="form-buttons">
+                <button type="submit">Salvar</button>
+                <button type="button" onClick={() => setIsFormVisible(false)}>Cancelar</button>
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   );

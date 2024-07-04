@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Acomodacao from './pages/Acomodacao';
 import Home from './pages/Home';
-import MeuCaixa from './pages/MeuCaixa';
-import PagamentoDetalhe from './components/PagamentoDetalhe';
-import PagamentoForm from './components/PagamentoForm';
+import Admin from './pages/Admin'; 
+import Login from './pages/Login';
+import Pagamento from './pages/Pagamento';
+
 const App = () => {
   return (
     <div className='App'>
@@ -12,10 +13,9 @@ const App = () => {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/acomodacao" element={<Acomodacao />} />
-          <Route path="/Meucaixa" element={<MeuCaixa />} />
-          <Route path="/pagamentos/novo" component={<PagamentoForm />} />
-          <Route path="/pagamentos/:id/editar" component={<PagamentoForm />} />
-          <Route path="/pagamentos/:id" component={<PagamentoDetalhe />} />
+          <Route path="/admin" element={<Admin />} /> 
+          <Route path="/login" element={<Login />} />
+          <Route path="/meu-caixa" element={<Pagamento />} />
         </Routes>
       </Router>
     </div>

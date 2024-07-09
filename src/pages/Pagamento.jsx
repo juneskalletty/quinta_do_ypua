@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Menu from '../components/Menu';
-import HeaderPagamentos from '../components/HeaderPagamentos'; // Atualizado para o novo componente
+import HeaderPagamentos from '../components/HeaderPagamentos';
 import '../style/pages/Pagamento.css';
 
 const Pagamento = () => {
@@ -9,7 +9,6 @@ const Pagamento = () => {
     { id: 2, descricao: 'Cartão de Crédito', valor: 1000, pago: true },
     { id: 3, descricao: 'Pix', valor: 1000, pago: false },
     { id: 4, descricao: 'Transferência Bancária', valor: 1000, pago: false },
-    // Adicione mais pagamentos conforme necessário
   ]);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [newPagamento, setNewPagamento] = useState({ descricao: '', valor: '', pago: false });
@@ -24,7 +23,12 @@ const Pagamento = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setPagamentos([...pagamentos, { ...newPagamento, id: pagamentos.length + 1 }]);
+    const valorConvertido = parseFloat(newPagamento.valor);
+    if (isNaN(valorConvertido)) {
+      alert("Por favor, insira um valor válido.");
+      return;
+    }
+    setPagamentos([...pagamentos, { ...newPagamento, valor: valorConvertido, id: pagamentos.length + 1 }]);
     setIsFormVisible(false);
     setNewPagamento({ descricao: '', valor: '', pago: false });
   };
@@ -65,7 +69,7 @@ const Pagamento = () => {
               <option value={2024}>2024</option>
               <option value={2025}>2025</option>
             </select>
-          </div>
+          </div> 
           <button onClick={() => setIsFormVisible(true)} className="add-payment">Adicionar Pagamento</button>
         </div>
         <div className="pagamentos-tabela">

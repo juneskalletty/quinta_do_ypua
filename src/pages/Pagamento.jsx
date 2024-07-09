@@ -5,16 +5,16 @@ import '../style/pages/Pagamento.css';
 
 const Pagamento = () => {
   const [pagamentos, setPagamentos] = useState([
-    { id: 1, descricao: 'Cartão de Débito', valor: 1000, pago: true },
-    { id: 2, descricao: 'Cartão de Crédito', valor: 1000, pago: true },
-    { id: 3, descricao: 'Pix', valor: 1000, pago: false },
-    { id: 4, descricao: 'Transferência Bancária', valor: 1000, pago: false },
+    { id: 1, descricao: 'Professor você está', valor: 1000, pago: true },
+    { id: 2, descricao: 'Um tanto elegante hoje', valor: 1000, pago: true },
+    { id: 3, descricao: 'Cartão de Crédito', valor: 1000, pago: false },
+    { id: 4, descricao: 'Pix', valor: 1000, pago: false },
   ]);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [newPagamento, setNewPagamento] = useState({ descricao: '', valor: '', pago: false });
   const [filter, setFilter] = useState('todos');
-  const [mes, setMes] = useState('Dezembro');
-  const [ano, setAno] = useState(2023);
+  const [mes, setMes] = useState('Julho');
+  const [ano, setAno] = useState(2024);
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +42,8 @@ const Pagamento = () => {
     if (filter === 'naoPagos') return !pagamento.pago;
     return true;
   });
+
+  // Hardcoding cadastrando os meses e anos. Corrigir fururamente.
 
   return (
     <div className="container">

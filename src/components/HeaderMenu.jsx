@@ -22,8 +22,8 @@ const HeaderMenu = () => {
   };
 
   return (
-    <div className="main-content">
-      <div className="content">
+    
+      <div className="header-content">
         <div className="header">
           <div className="stats">
             <button>Todos: 10</button>
@@ -46,7 +46,6 @@ const HeaderMenu = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

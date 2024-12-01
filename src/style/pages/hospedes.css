@@ -1,0 +1,131 @@
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.hospedes-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    max-width: 1500px ;
+}
+.hospedes-form {
+    display: flex;
+    max-width: 400px;
+    height: 100%;
+    border: 1px solid #e2e2e2;
+    padding: 10px;
+    border-radius: 10px;
+    height: 520px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f9f9f9;
+    box-shadow: 3px;
+}
+.hospedes-form  form {
+    display: flex;
+    flex-direction: column;
+}
+.hospedes-form  label {
+    margin-bottom: 7px;
+}
+.cards-container {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-group {
+    margin-bottom: 3px;
+}
+.card-hospedes {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px; width: 200px;
+    background-color: #f9f9f9;
+    max-height: 100px;
+}
+.card.chegando .card-title {
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: white;
+}
+.card.a-chegar .card-title {
+    border-radius: 5px;
+    background-color: #53f79d;
+    color: black;
+}
+.card.na-pousada .card-title {
+    border-radius: 5px;
+    background-color: #f44336;
+    color: white;
+}
+.card.saindo .card-title {
+    border-radius: 5px;
+    background-color: #ffeb3b;
+    color: black;
+}
+.card-title {
+    padding: 5px;
+    font-weight: bold;
+}
+.card-dates {
+    margin-bottom: 5px;
+}
+.input {
+    border-radius: 7px;
+    border: 1px solid #7e2726;
+    padding: 3px;
+    width: 390px;
+    margin-right: 3px;
+    margin-top: 2px;
+}
+.div-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.btn-hospedes {
+    background-color: #8a2b29;
+    cursor: pointer;
+    color: #f9f9f9;
+    padding: 2px;
+    border-radius: 7px;
+    width: 50%;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+}
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    height: 100%;
+    border: 1px solid #e2e2e2;
+    padding: 10px;
+    border-radius: 10px;
+    height: 480px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f9f9f9;
+    box-shadow: 3px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hospedes-btn {
+    margin-left: 5px;
+}

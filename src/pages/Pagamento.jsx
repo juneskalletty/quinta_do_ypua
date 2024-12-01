@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Menu from '../components/Menu';
 import HeaderPagamentos from '../components/HeaderPagamentos';
 import '../style/pages/Pagamento.css';
@@ -96,29 +96,29 @@ const Pagamento = () => {
               <h2>Novo Pagamento</h2>
               <label>
                 Descrição:
-                <input 
-                  type="text" 
-                  name="descricao" 
-                  value={newPagamento.descricao} 
-                  onChange={handleFormChange} 
+                <input
+                  type="text"
+                  name="descricao"
+                  value={newPagamento.descricao}
+                  onChange={handleFormChange}
                 />
               </label>
               <label>
                 Valor:
-                <input 
-                  type="number" 
-                  name="valor" 
-                  value={newPagamento.valor} 
-                  onChange={handleFormChange} 
+                <input
+                  type="number"
+                  name="valor"
+                  value={newPagamento.valor}
+                  onChange={handleFormChange}
                 />
               </label>
               <label>
                 Pago:
-                <input 
-                  type="checkbox" 
-                  name="pago" 
-                  checked={newPagamento.pago} 
-                  onChange={(e) => setNewPagamento({ ...newPagamento, pago: e.target.checked })} 
+                <input
+                  type="checkbox"
+                  name="pago"
+                  checked={newPagamento.pago}
+                  onChange={(e) => setNewPagamento({ ...newPagamento, pago: e.target.checked })}
                 />
               </label>
               <div className="form-buttons">

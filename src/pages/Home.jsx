@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Menu from '../components/Menu';
-import HeaderMenu from '../components/HeaderMenu';
 import userIcon from '../img/user.svg';
 import keyboardIcon from '../img/keyboard.svg';
 import '../style/pages/Home.css';
@@ -15,7 +14,7 @@ const Home = () => {
   const [newAcomodacao, setNewAcomodacao] = useState({ title: '', name: '', dates: '', color: 'green', id: '' });
   const [searchTerm, setSearchTerm] = useState('');
   const [acomodacoes, setAcomodacoes] = useState([
-    { title: "Chalé familia", name: "Maria da Silva", dates: "03/04/2024 - 07/04/2024", color: "red", id: "cabana1" },
+    { title: "Chalé familia", name: "Maria da Silva", dates: "03/04/2024 - 07/04/2024", color: "red", id: "chalefamilia" },
     { title: "Suíte com cozinha 1", name: "João Alberto Rodrigues", dates: "03/04/2024 - 07/04/2024", color: "red", id: "suitecomcozinha1" },
     { title: "Cabana 1", name: "Gabriel Mendes Moura", dates: "03/04/2024 - 07/04/2024", color: "red", id: "cabana1" },
     { title: "Overlands", name: "Rafael Oliveiros", dates: "03/04/2024 - 07/04/2024", color: "blue", id: "overlands1" },
@@ -25,7 +24,7 @@ const Home = () => {
     { title: "Bus", name: "", dates: "", color: "green", id: "bus" },
     { title: "Overlands", name: "", dates: "", color: "green", id: "overlands3" },
     { title: "Cabana 3", name: "", dates: "", color: "green", id: "cabana3" },
-    { title: "Nova Acomodação", name: "", dates: "", color: "green", id: "novaacomodacao" },
+    { title: "Nova Acomodação", name: "", dates: "", id: "novaacomodacao" },
   ]);
   const [showUserCard, setShowUserCard] = useState(false);
 
@@ -92,7 +91,7 @@ const Home = () => {
     ? acomodacoes.filter(acomodacao => acomodacao.color === filteredColor)
     : acomodacoes;
 
-  const filteredSearchResults = acomodacoes.filter(acomodacao => 
+  const filteredSearchResults = acomodacoes.filter(acomodacao =>
     acomodacao.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -124,9 +123,9 @@ const Home = () => {
         <div className="home-content">
           <div className="cards-container">
             {filteredAcomodacoes.map((item, index) => (
-              <div 
-                key={index} 
-                className={`card ${item.color} ${!item.name && !item.dates ? 'add-reserva' : ''}`} 
+              <div
+                key={index}
+                className={`card ${item.color} ${!item.name && !item.dates ? 'add-reserva' : ''}`}
                 onClick={() => handleAcomodacaoClick(item.id)}
               >
                 <div className="card-title">{item.title}</div>
@@ -147,25 +146,25 @@ const Home = () => {
               <h2>Nova Acomodação</h2>
               <label>
                 Acomodação:
-                <input 
-                  type="text" 
-                  name="title" 
-                  value={newAcomodacao.title} 
-                  onChange={handleFormChange} 
+                <input
+                  type="text"
+                  name="title"
+                  value={newAcomodacao.title}
+                  onChange={handleFormChange}
                 />
               </label>
               <label>
                 Pesquisar Acomodações:
-                <input 
-                  type="text" 
-                  value={searchTerm} 
-                  onChange={handleSearchChange} 
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
                 />
                 {searchTerm && (
                   <ul className="search-results">
                     {filteredSearchResults.map(result => (
-                      <li 
-                        key={result.id} 
+                      <li
+                        key={result.id}
                         onClick={() => handleSearchSelect(result.id)}
                       >
                         {result.title}

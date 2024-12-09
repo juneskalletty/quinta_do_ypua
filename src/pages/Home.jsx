@@ -8,23 +8,22 @@ import '../style/pages/Home.css';
 
 const Home = () => {
   const navigate = useNavigate();
-  
+
   const [filteredColor, setFilteredColor] = useState('');
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [newAcomodacao, setNewAcomodacao] = useState({ title: '', name: '', dates: '', color: 'green', id: '' });
   const [searchTerm, setSearchTerm] = useState('');
   const [acomodacoes, setAcomodacoes] = useState([
-    { title: "Chalé familia", name: "Maria da Silva", dates: "03/04/2024 - 07/04/2024", color: "red", id: "chalefamilia" },
-    { title: "Suíte com cozinha 1", name: "João Alberto Rodrigues", dates: "03/04/2024 - 07/04/2024", color: "red", id: "suitecomcozinha1" },
-    { title: "Cabana 1", name: "Gabriel Mendes Moura", dates: "03/04/2024 - 07/04/2024", color: "red", id: "cabana1" },
-    { title: "Overlands", name: "Rafael Oliveiros", dates: "03/04/2024 - 07/04/2024", color: "blue", id: "overlands1" },
-    { title: "Cabana 2", name: "Joana Soares", dates: "03/04/2024 - 07/04/2024", color: "blue", id: "cabana2" },
-    { title: "Overlands", name: "Fernanda Nogueira", dates: "03/04/2024 - 07/04/2024", color: "yellow", id: "overlands2" },
-    { title: "Suíte com cozinha 2", name: "José Martins", dates: "03/04/2024 - 07/04/2024", color: "yellow", id: "suitecomcozinha2" },
+    { title: "Chalé familia", name: "Maria da Silva", dates: "03/01/2025 - 07/01/2025", color: "red", id: "chalefamilia" },
+    { title: "Suíte com cozinha 1", name: "João Alberto Rodrigues", dates: "20/12/2024 - 07/01/2025", color: "red", id: "suitecomcozinha1" },
+    { title: "Cabana 1", name: "Gabriel Mendes Moura", dates: "03/04/2025 - 07/01/2025", color: "red", id: "cabana1" },
+    { title: "Overlands", name: "Rafael Oliveiros", dates: "12/04/2025 - 07/05/2025", color: "blue", id: "overlands1" },
+    { title: "Cabana 2", name: "Joana Soares", dates: "25/12/2024 - 02/01/2025", color: "blue", id: "cabana2" },
+    { title: "Overlands", name: "Fernanda Nogueira", dates: "03/04/2025 - 07/04/2025", color: "yellow", id: "overlands2" },
+    { title: "Suíte com cozinha 2", name: "José Martins", dates: "15/12/2024 - 01/01/2025", color: "yellow", id: "suitecomcozinha2" },
     { title: "Bus", name: "", dates: "", color: "green", id: "bus" },
     { title: "Overlands", name: "", dates: "", color: "green", id: "overlands3" },
     { title: "Cabana 3", name: "", dates: "", color: "green", id: "cabana3" },
-    { title: "Nova Acomodação", name: "", dates: "", id: "novaacomodacao" },
   ]);
   const [showUserCard, setShowUserCard] = useState(false);
 
@@ -137,7 +136,12 @@ const Home = () => {
                 </div>
               </div>
             ))}
-            {filteredAcomodacoes.length % 4 !== 0 && <div className="empty-block"></div>}
+            <button
+              className="add-button"
+              onClick={() => handleAcomodacaoClick('novaacomodacao')}
+            >
+              Adicionar
+            </button>
           </div>
         </div>
         {isFormVisible && (

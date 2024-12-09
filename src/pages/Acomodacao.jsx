@@ -234,7 +234,6 @@ const Acomodacao = () => {
     <div className='acomodacao'>
       <Menu />
       <div className='acomodacao-content'>
-        <HeaderMenu />
         <div className='agenda-content'>
           <div className='agenda'>
             <Calendar acomodacao={acomodacao} setAcomodacao={setAcomodacao} />
